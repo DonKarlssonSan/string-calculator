@@ -6,9 +6,14 @@ describe("StringCalculator", function () {
     expect(result).toBe(0);
   });
   
-  it("should return the parameter when there is only one", function () {
+  it("should return the parameter when there is only one (5)", function () {
     var result = calc.add("5");
     expect(result).toBe(5);
+  });
+
+  it("should return the parameter when there is only one (7)", function () {
+    var result = calc.add("7");
+    expect(result).toBe(7);
   });
 
 });
