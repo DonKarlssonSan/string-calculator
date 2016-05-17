@@ -16,4 +16,9 @@ describe("StringCalculator", function () {
     expect(result).toBe(7);
   });
 
+  it("should return the sum of two parameters", function () {
+    var result = calc.add("7,5");
+    expect(result).toBe(12);
+  });
+
 });
