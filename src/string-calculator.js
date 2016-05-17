@@ -1,9 +1,9 @@
 var add = function (numberString) {
     if(numberString.length > 0) {
-        var sum = 0;
-        numberString.split(",").map(num => parseInt(num)).forEach(function(num) {
-            sum += num;
-        });
+        var sum = numberString
+            .split(",")
+            .map(num => parseInt(num))
+            .reduce((s, prev) => s + prev);
         return sum;
     }
     
