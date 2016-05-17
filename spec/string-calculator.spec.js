@@ -5,4 +5,10 @@ describe("StringCalculator", function () {
     var result = calc.add("");
     expect(result).toBe(0);
   });
+  
+  it("should return the parameter when there is only one", function () {
+    var result = calc.add("5");
+    expect(result).toBe(5);
+  });
+
 });
