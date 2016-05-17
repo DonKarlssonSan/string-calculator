@@ -21,4 +21,9 @@ describe("StringCalculator", function () {
     expect(result).toBe(12);
   });
 
+  it("should return the sum of five parameters", function () {
+    var result = calc.add("1,2,3,4,5");
+    expect(result).toBe(15);
+  });
+
 });
