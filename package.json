@@ -1,0 +1,23 @@
+{
+  "name": "string-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/string-calculator.js",
+  "scripts": {
+    "test": "jasmine-node spec"
+  },
+  "keywords": [
+    "calculator",
+    "number",
+    "math"
+  ],
+  "author": "Johan Karlsson <donkarlssonsan@gmail.com> (https://twitter.com/DonKarlssonSan)",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DonKarlssonSan/string-calculator.git"
+  }
+}
