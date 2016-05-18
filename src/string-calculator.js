@@ -17,31 +17,36 @@ function hasDelimiterSpecified(numberString) {
 }
 
 function removeFirstLine(numberString) {
-    var temp = numberString.split("\n");
-    temp.splice(0, 1);
-    return temp.join("");
+  var temp = numberString.split("\n");
+  temp.splice(0, 1);
+  return temp.join("");
 }
 
 function getSum(numberString, delimiters) {
+  var numbers = splitAndParse(numberString, delimiters);
+  throwIfNegative(numbers); 
+  numbers = removeBigNumbers(numbers);
+  var sum = numbers.reduce((s, current) => s + current);
+  return sum;
+}
+
+function splitAndParse(numberString, delimiters) {
   var regexp = new RegExp("[" + delimiters.join("") + "]");
-  var negatives = []; 
-  var sum = numberString
+  return numberString
     .split(regexp)
-    .map(num => parseInt(num))
-    .reduce((s, current) => {
-      if(current < 0) {
-        negatives.push(current);
-      }
-      if(current <= 1000) {
-        return s + current;
-      } else {
-        return s;
-      }
-    });
+    .map(num => parseInt(num));
+}
+
+function throwIfNegative(numbers) {
+  var negatives = numbers.filter(n => n < 0);
   if(negatives.length > 0) {
     throw new Error("Negatives not allowed. You included: " + negatives.join(","));
   }
-  return sum;
+}
+
+function removeBigNumbers(numbers) {
+  var clean = numbers.filter(n => n <= 1000);
+  return clean;
 }
 
 exports.add = add;
