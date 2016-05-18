@@ -29,7 +29,7 @@ function getSum(numberString, delimiters) {
     .map(num => parseInt(num))
     .reduce((s, current) => {
       if(current < 0) {
-        throw new Error("Negatives not allowed");
+        throw new Error("Negatives not allowed. You included: " + current);
       }
       return s + current;
     });

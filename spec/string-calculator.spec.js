@@ -52,7 +52,18 @@ describe("StringCalculator", function () {
     catch (e) {
       error = e;
     }
-    expect(error).not.toBeUndefined();    
+    expect(error).not.toBeUndefined();   
+  });
+
+  it("should throw when a number is negative with a message that contains the number", function () {
+    var error = undefined;
+    try {
+      calc.add("1\n-1");
+    }
+    catch (e) {
+      error = e;
+    }
+    expect(error.message.includes("-1")).toBe(true);    
   });
 
 
