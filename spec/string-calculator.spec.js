@@ -79,4 +79,9 @@ describe("StringCalculator", function () {
     expect(error.message.includes("-5")).toBe(true); 
   });
 
+  it("should ignore numbers bigger than 1000", function () {
+    var result = calc.add("2,1001");
+    expect(result).toBe(2);
+  });
+
 });

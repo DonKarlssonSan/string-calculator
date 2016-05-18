@@ -32,7 +32,11 @@ function getSum(numberString, delimiters) {
       if(current < 0) {
         negatives.push(current);
       }
-      return s + current;
+      if(current <= 1000) {
+        return s + current;
+      } else {
+        return s;
+      }
     });
   if(negatives.length > 0) {
     throw new Error("Negatives not allowed. You included: " + negatives.join(","));
