@@ -24,15 +24,19 @@ function removeFirstLine(numberString) {
 
 function getSum(numberString, delimiters) {
   var regexp = new RegExp("[" + delimiters.join("") + "]");
+  var negatives = []; 
   var sum = numberString
     .split(regexp)
     .map(num => parseInt(num))
     .reduce((s, current) => {
       if(current < 0) {
-        throw new Error("Negatives not allowed. You included: " + current);
+        negatives.push(current);
       }
       return s + current;
     });
+  if(negatives.length > 0) {
+    throw new Error("Negatives not allowed. You included: " + negatives.join(","));
+  }
   return sum;
 }
 

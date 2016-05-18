@@ -66,5 +66,17 @@ describe("StringCalculator", function () {
     expect(error.message.includes("-1")).toBe(true);    
   });
 
+  it("should throw an error with all negatives", function () {
+    var error = undefined;
+    try {
+      calc.add("1\n-1,3,-4,5,-5");
+    }
+    catch (e) {
+      error = e;
+    }
+    expect(error.message.includes("-1")).toBe(true);    
+    expect(error.message.includes("-4")).toBe(true);    
+    expect(error.message.includes("-5")).toBe(true); 
+  });
 
 });
