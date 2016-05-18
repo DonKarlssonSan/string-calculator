@@ -36,4 +36,12 @@ describe("StringCalculator", function () {
     expect(result).toBe(3);
   });
 
+  it("should handle specifying the delimiter, random", function () {
+    var delimiters = ["@", "!", "#", "_"];
+    var index = Math.floor(Math.random() * delimiters.length);
+    var delimiter = delimiters[index];
+    var result = calc.add("//" + delimiter + "\n1" + delimiter + "2");
+    expect(result).toBe(3);
+  });
+
 });
