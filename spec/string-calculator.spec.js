@@ -31,4 +31,9 @@ describe("StringCalculator", function () {
     expect(result).toBe(15);
   });
 
+  it("should handle specifying the delimiter", function () {
+    var result = calc.add("//&\n1&2");
+    expect(result).toBe(3);
+  });
+
 });
