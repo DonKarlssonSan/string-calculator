@@ -43,5 +43,17 @@ describe("StringCalculator", function () {
     var result = calc.add("//" + delimiter + "\n1" + delimiter + "2");
     expect(result).toBe(3);
   });
+  
+  it("should throw when a number is negative", function () {
+    var error = undefined;
+    try {
+      calc.add("1\n-1");
+    }
+    catch (e) {
+      error = e;
+    }
+    expect(error).not.toBeUndefined();    
+  });
+
 
 });

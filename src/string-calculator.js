@@ -27,7 +27,12 @@ function getSum(numberString, delimiters) {
   var sum = numberString
     .split(regexp)
     .map(num => parseInt(num))
-    .reduce((s, prev) => s + prev);
+    .reduce((s, current) => {
+      if(current < 0) {
+        throw new Error("Negatives not allowed");
+      }
+      return s + current;
+    });
   return sum;
 }
 
